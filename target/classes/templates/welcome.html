@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome</title>
+    <link th:href="@{/css/welcome.css}" rel="stylesheet" />
+    <link href='https://css.gg/add-r.css' rel='stylesheet'>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <div><a href="#"><i class="gg-add-r"></i> Create a post</a></div>
+
+        <a href="#">Tasks</a>
+        <a href="#">Calendar</a>
+        <a href="#">Goals</a>
+        <a href="#">Overview</a>
+        <a href="#">Profile</a>
+    </div>
+    <div class = "wrapper">
+        <h1 class = "headliner">Welcome, User</h1>
+        <button id = "ask_permis_btn" class = "ask_permis_btn">Turn on geolocation</button>
+        <div class = "weather" id = "weather" th:text="${weather+' °C'}"></div>
+        <div class = "location" id = "location" th:text="${location}">City</div>
+        <div class = "date" id = "date" th:text="${date}">Date</div>
+    </div>
+
+</body>
+</html>
