@@ -8,24 +8,34 @@
     <title>Welcome</title>
     <link th:href="@{/css/welcome.css}" rel="stylesheet" />
     <link href='https://css.gg/add-r.css' rel='stylesheet'>
+    <link href='https://css.gg/google-tasks.css' rel='stylesheet'>
+    <link href='https://css.gg/calendar-today.css' rel='stylesheet'>
+    <link href='https://css.gg/awards.css' rel='stylesheet'>
+    <link href='https://css.gg/browse.css' rel='stylesheet'>
+    <link href='https://css.gg/profile.css' rel='stylesheet'>
 </head>
 <body>
     <div id="mySidenav" class="sidenav">
-        <div><a href="#"><i class="gg-add-r"></i> Create a post</a></div>
+        <div><i class="gg-add-r"></i><a href="#">Create a post</a></div>
+        <div><i class="gg-google-tasks"></i><a href="#">Tasks</a></div>
+        <div><i class="gg-calendar-today"></i><a href="#">Calendar</a></div>
+        <div><i class="gg-awards"></i><a href="#">Goals</a></div>
+        <div><i class="gg-browse"></i><a href="#">Overview</a></div>
+        <div><i class="gg-profile"></i><a href="#">Profile</a></div>
 
-        <a href="#">Tasks</a>
-        <a href="#">Calendar</a>
-        <a href="#">Goals</a>
-        <a href="#">Overview</a>
-        <a href="#">Profile</a>
     </div>
+
     <div class = "wrapper">
         <h1 class = "headliner">Welcome, User</h1>
         <button id = "ask_permis_btn" class = "ask_permis_btn">Turn on geolocation</button>
-        <div class = "weather" id = "weather" th:text="${weather+' °C'}"></div>
-        <div class = "location" id = "location" th:text="${location}">City</div>
-        <div class = "date" id = "date" th:text="${date}">Date</div>
+        <div class ="wrapper_info">
+            <div class = "weather" id = "weather" th:text="${weather+' °C'}"></div>
+            <div class = "location" id = "location" th:text="${location}">City</div>
+        </div>
+
+        <div class = "date" id = "date" th:text="'Date: '+${date}">Date</div>
     </div>
+
 
 </body>
 </html>

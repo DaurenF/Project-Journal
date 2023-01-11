@@ -27,22 +27,41 @@ body{
 }
 
 /* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
+.sidenav div:hover {
     color: #2d6773;
 }
 
 .wrapper{
-    margin:0 auto;
     width: 40%;
+    margin-top: 12%;
+    margin-left: 42%;
 }
 
 .ask_permis_btn{
     border: none;
-    color:greenyellow;
+    background-color:greenyellow;
     transition: 0.3s;
+    height: 35px;
+    border-radius: 10px;
+    margin-left: 20%;
 }
 .ask_permis_btn:hover{
-    color: green;
+    background-color: green;
+}
+.sidenav a,i{
+    display: block;
 }
 
+.sidenav div{
+    display: flex;
+}
+
+.sidenav i{
+    margin-top: 15px;
+    margin-left: 20px;
+}
+.headliner{ font-size: 64px;}
+.wrapper div{ font-size: 24px;}
+.wrapper_info{ display: flex; visibility: hidden;}
+.date{margin-left: 20%}
 
