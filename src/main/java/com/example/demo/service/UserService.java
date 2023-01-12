@@ -12,8 +12,10 @@ public interface UserService {
 
     String getCurrentWeather();
 
-    Date getExpirationDatePermission();
+    Date getExpirationDatePermById(long id);
     void save(User user);
+    User getUserByUsername(String username);
+
 
 }
 

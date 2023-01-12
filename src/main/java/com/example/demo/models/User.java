@@ -10,6 +10,7 @@ import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Date;
 
@@ -45,7 +46,7 @@ public class User implements UserDetails {
     private String password;
 
     @Column(name = "exp_date")
-    private Date exp_date;
+    private LocalDate exp_date;
 
     public User(String name, String surname, Date birth, String gender, String country, String email, String password) {
         this.name = name;

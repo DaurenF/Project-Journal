@@ -5,7 +5,6 @@ import com.example.demo.repository.UserRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -16,7 +15,7 @@ import java.util.Date;
 
 @Service
 public class UserServiceImpl implements  UserService{
-    private String city;
+    private String city="Undefined";
     public final RestTemplate restTemplate;
     public final UserRepository userRepository;
     @Autowired
@@ -29,7 +28,6 @@ public class UserServiceImpl implements  UserService{
     public LocalDate getLocalDate() {
         return LocalDate.now();
     }
-    @PostConstruct
     @Override
     public void getLocation(){
         String url = "https://ipgeolocation.abstractapi.com/v1/?api_key=782c2ba14e7f4c06bb65a68a4a2b7b84";
@@ -45,7 +43,7 @@ public class UserServiceImpl implements  UserService{
     }
     @Override
     public String getCurrentWeather()  {
-        if(city.startsWith("Could")) return "Could not define the weather";
+        if(city.startsWith("Undefined")) return "Could not define the weather";
         System.out.println("CITY: "+city);
         String url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=9544871686a0d704298927f77ba9e6c3";
         String response = restTemplate.getForObject(url, String.class);
@@ -60,21 +58,28 @@ public class UserServiceImpl implements  UserService{
     }
 
     @Override
-    public Date getExpirationDatePermission() {
-        return null;
+    public Date getExpirationDatePermById(long id) {
+        return userRepository.getExpirationDatePermById(id);
     }
+
+
 
     @Override
     public void save(User user) {
         user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+        user.setExp_date(LocalDate.now().minusDays(1));
         userRepository.save(user);
+    }
+
+    @Override
+    public User getUserByUsername(String username) {
+        return userRepository.findUserByEmail(username);
     }
 
     public String getCity() {
         if(city == null) return "Could not define location";
         return city;
     }
-
     public void setCity(String city) {
         this.city = city;
     }

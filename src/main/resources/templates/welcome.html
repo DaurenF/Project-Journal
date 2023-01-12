@@ -28,14 +28,14 @@
     <div class = "wrapper">
         <h1 class = "headliner">Welcome, User</h1>
         <button id = "ask_permis_btn" class = "ask_permis_btn">Turn on geolocation</button>
-        <div class ="wrapper_info">
-            <div class = "weather" id = "weather" th:text="${weather+' °C'}"></div>
-            <div class = "location" id = "location" th:text="${location}">City</div>
+        <div class ="wrapper_info" id ="wrapper_info">
+            <div class = "weather" id = "weather"></div>
+            <div class = "location" id = "location">City</div>
         </div>
 
-        <div class = "date" id = "date" th:text="'Date: '+${date}">Date</div>
+        <div class = "date" id = "date" >Date</div>
     </div>
 
-
+    <script th:src="@{/js/welcome.js}"></script>
 </body>
 </html>
