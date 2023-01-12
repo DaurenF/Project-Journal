@@ -18,6 +18,6 @@ public class LocationController {
 
     @PostMapping("/update_permission")
     public void updatePermissionDate(Date date){
-        
+
     }
 }

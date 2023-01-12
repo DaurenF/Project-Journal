@@ -43,6 +43,7 @@ body{
     transition: 0.3s;
     height: 35px;
     border-radius: 10px;
+    margin-left: 20%;
 }
 .ask_permis_btn:hover{
     background-color: green;

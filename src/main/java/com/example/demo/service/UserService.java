@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 import com.example.demo.models.User;
-import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.time.LocalDate;
 import java.util.Date;

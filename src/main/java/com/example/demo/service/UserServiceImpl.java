@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -15,7 +16,7 @@ import java.util.Date;
 
 @Service
 public class UserServiceImpl implements  UserService{
-    public static String city;
+    private String city;
     public final RestTemplate restTemplate;
     public final UserRepository userRepository;
     @Autowired
@@ -65,6 +66,16 @@ public class UserServiceImpl implements  UserService{
 
     @Override
     public void save(User user) {
+        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         userRepository.save(user);
+    }
+
+    public String getCity() {
+        if(city == null) return "Could not define location";
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }
