@@ -17,9 +17,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String getWelcomePage(Model model){
-        model.addAttribute("date", userServiceImpl.getLocalDate());
-        model.addAttribute("location", userServiceImpl.getCity());
-        model.addAttribute("weather", userServiceImpl.getCurrentWeather());
         return "welcome";
     }
 

@@ -15,6 +15,7 @@ body{
 }
 .sidenav div{
     display: flex;
+    margin-left: 20px;
 }
 /* The navigation menu links */
 .sidenav a {
@@ -62,6 +63,12 @@ body{
 }
 .headliner{ font-size: 64px;}
 .wrapper div{ font-size: 24px;}
-.wrapper_info{ display: flex; visibility: hidden;}
-.date{margin-left: 20%}
+.wrapper_info{
+    visibility: hidden;
+}
+.date, .location, .weather{
+    padding-top: 20px;
+    margin-left: 100px;
+}
+
 

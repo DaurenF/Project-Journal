@@ -67,7 +67,6 @@ public class UserServiceImpl implements  UserService{
     @Override
     public void save(User user) {
         user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
-        user.setExp_date(LocalDate.now().minusDays(1));
         userRepository.save(user);
     }
 

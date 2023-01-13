@@ -45,8 +45,7 @@ public class User implements UserDetails {
     @NotEmpty(message = "Fill your password")
     private String password;
 
-    @Column(name = "exp_date")
-    private LocalDate exp_date;
+
 
     public User(String name, String surname, Date birth, String gender, String country, String email, String password) {
         this.name = name;

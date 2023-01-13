@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome</title>
+    <link th:href="@{/css/welcome.css}" rel="stylesheet" />
+    <link href='https://css.gg/add-r.css' rel='stylesheet'>
+    <link href='https://css.gg/google-tasks.css' rel='stylesheet'>
+    <link href='https://css.gg/calendar-today.css' rel='stylesheet'>
+    <link href='https://css.gg/awards.css' rel='stylesheet'>
+    <link href='https://css.gg/browse.css' rel='stylesheet'>
+    <link href='https://css.gg/profile.css' rel='stylesheet'>
+</head>
+<body>
+<div id="mySidenav" class="sidenav">
+    <div><i class="gg-add-r"></i><a href="#">Create a post</a></div>
+    <div><i class="gg-google-tasks"></i><a href="#">Tasks</a></div>
+    <div><i class="gg-calendar-today"></i><a href="#">Calendar</a></div>
+    <div><i class="gg-awards"></i><a href="#">Goals</a></div>
+    <div><i class="gg-browse"></i><a href="#">Overview</a></div>
+    <div><i class="gg-profile"></i><a href="#">Profile</a></div>
+
+</div>
+
+<div class = "wrapper">
+    <h1 class = "headliner">Welcome, User</h1>
+    <button id = "ask_permis_btn" class = "ask_permis_btn">Turn on geolocation</button>
+    <div class ="wrapper_info" id ="wrapper_info">
+        <div class = "weather" id = "weather"></div>
+        <div class = "location" id = "location"></div>
+        <div class = "date" id = "date"></div>
+    </div>
+
+
+</div>
+
+<script th:src="@{/js/welcome.js}"></script>
+</body>
+</html>
