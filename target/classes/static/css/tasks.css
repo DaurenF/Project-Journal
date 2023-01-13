@@ -1,0 +1,19 @@
+#todo-list {
+    width: 400px;
+    margin: 0 auto;
+}
+
+#task-list li {
+    list-style: none;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#task-list li:last-child {
+    border-bottom: none;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #ccc;
+}
