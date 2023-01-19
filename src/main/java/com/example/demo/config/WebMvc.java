@@ -8,7 +8,7 @@ public class WebMvc implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("").setViewName("/welcome");
-        registry.addViewController("/task").setViewName("/tasks");
+        registry.addViewController("/tasks").setViewName("/tasks");
 
     }
 }

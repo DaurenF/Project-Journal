@@ -13,4 +13,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User findUserByEmail(String email);
     @Query(value = "SELECT exp_date from Users where id = ?", nativeQuery = true)
     Date getExpirationDatePermById(long id);
+
+    Optional<User> findUserByUsername(String username);
 }

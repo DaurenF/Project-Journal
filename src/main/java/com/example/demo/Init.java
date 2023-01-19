@@ -6,6 +6,7 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Component
@@ -17,7 +18,7 @@ public class Init {
     }
     @PostConstruct
     public void initUser() {
-        User user = new User("User", "Userov", new Date(),
+        User user = new User("User", "Userov","user", new Date(),
                 "Male","Kazakhstan", "user@gmail.com", "user");
         user.setId(1L);
         userService.save(user);

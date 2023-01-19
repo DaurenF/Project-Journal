@@ -14,12 +14,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-@ToString
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
-@EqualsAndHashCode
-public class User implements UserDetails {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -40,6 +37,10 @@ public class User implements UserDetails {
     @Email(message = "Enter correct email")
     @NotEmpty(message = "Fill your email")
     private String email;
+    @Column(name = "username")
+    @NotEmpty(message = "Fill your username")
+    private String username;
+
     @Column(name = "password")
     @NotEmpty(message = "Fill your password")
     private String password;
@@ -49,9 +50,10 @@ public class User implements UserDetails {
 
 
 
-    public User(String name, String surname, Date birth, String gender, String country, String email, String password) {
+    public User(String name, String surname,String username, Date birth, String gender, String country, String email, String password) {
         this.name = name;
         this.surname = surname;
+        this.username = username;
         this.birth = birth;
         this.gender = gender;
         this.country = country;
@@ -59,34 +61,4 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
-
-    @Override
-    public String getUsername() {
-        return getEmail();
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
 }
