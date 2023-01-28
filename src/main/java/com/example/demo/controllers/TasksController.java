@@ -1,32 +1,34 @@
 package com.example.demo.controllers;
 
 import com.example.demo.models.Task;
-import com.example.demo.repository.TaskRepository;
+import com.example.demo.service.TasksServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/tasks")
 public class TasksController {
 
-    private final TaskRepository taskRepository;
+    private final TasksServiceImpl tasksService;
 
-    public TasksController(TaskRepository taskRepository) {
-        this.taskRepository = taskRepository;
+    public TasksController(TasksServiceImpl tasksService) {
+        this.tasksService = tasksService;
     }
 
 
-    @PostMapping
+    @PostMapping("/create")
     public Task createTask(@RequestBody Task task) {
-        return taskRepository.save(task);
+        return tasksService.createTask(task);
     }
-    @GetMapping
+
+    @GetMapping("/all")
     public List<Task> getTasks() {
-        return taskRepository.findAll();
+        return tasksService.getTasks();
     }
+
     @DeleteMapping("/{id}")
     public void deleteTask(@PathVariable Long id) {
-        taskRepository.deleteById(id);
+        tasksService.deleteTask(id);
     }
 }

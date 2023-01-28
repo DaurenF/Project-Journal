@@ -1,14 +1,11 @@
 package com.example.demo.models;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.*;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +19,6 @@ public class User {
     @Column(name = "id")
     private long id;
     @Column(name = "name")
-    @NotEmpty(message = "Fill your name")
     private String name;
     @Column(name = "surname")
     private String surname;
@@ -34,8 +30,6 @@ public class User {
     private String country;
 
     @Column(name = "email")
-    @Email(message = "Enter correct email")
-    @NotEmpty(message = "Fill your email")
     private String email;
     @Column(name = "username")
     @NotEmpty(message = "Fill your username")
@@ -61,4 +55,8 @@ public class User {
         this.password = password;
     }
 
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 }

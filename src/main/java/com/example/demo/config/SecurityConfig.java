@@ -17,6 +17,7 @@ public class SecurityConfig {
 
     private final UserDetailsServiceImpl userDetailsService;
     private final JWTFilter jwtFilter;
+
     @Autowired
     public SecurityConfig(UserDetailsServiceImpl userDetailsService, JWTFilter jwtFilter) {
         this.userDetailsService = userDetailsService;
@@ -29,7 +30,7 @@ public class SecurityConfig {
         http
                 .csrf().disable()
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/auth/login", "/auth/registration", "/error").permitAll()
+                        .requestMatchers("/auth/login", "/auth/registration", "/error", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin().loginPage("/auth/login")
@@ -46,7 +47,6 @@ public class SecurityConfig {
 
         return http.build();
     }
-
 
 
     @Bean

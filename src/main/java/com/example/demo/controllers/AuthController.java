@@ -20,6 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
+/**
+ * Controller for authentication
+ *
+ * @author Dauren
+ */
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -40,6 +45,11 @@ public class AuthController {
         this.authenticationManager = authenticationManager;
     }
 
+    /**
+     * @param userDTO       Data Transfer object from client
+     * @param bindingResult Checks the form for errors and if it has some, then returns the error
+     * @return Returns a new token to access api for 5 minutes
+     */
     @PostMapping(value = "/registration", consumes = "application/json")
     public Map<String, String> performRegistration(@RequestBody @Valid UserDTO userDTO,
                                                    BindingResult bindingResult) {
