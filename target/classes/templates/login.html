@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Login Page</title>
 </head>
 <body>
 <h1>Journal App</h1>
-<div th:if="${param.error}">
+<div class = "validate1" style="display: none">
     Invalid username and password.
 </div>
-<div th:if="${param.logout}">
+<div class = "validate2" style="display: none">
     You have been logged out.
 </div>
-<form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
-</form>
+<div><label> User Name : <input id = "username" type="text" name="username"/> </label></div>
+<div><label> Password: <input id ="password" type="password" name="password"/> </label></div>
+<div><input id="send" type="submit" value="Sign In"/></div>
+
+<script type="text/javascript" th:src="@{/js/auth.js}"></script>
 </body>
 </html>

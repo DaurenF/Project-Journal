@@ -25,6 +25,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/auth")
+@CrossOrigin(origins = "*")
 public class AuthController {
 
     private final RegistrationService registrationService;
@@ -44,14 +45,14 @@ public class AuthController {
     }
 
     /**
-     * @param userDTO       Data Transfer object from client
+     * @param authDTO       Data Transfer object from client
      * @param bindingResult Checks the form for errors and if it has some, then returns the error
-     * @return Returns a new token to access api for 5 minutes
+     * @return Returns a new token to access api for 60 minutes
      */
     @PostMapping(value = "/registration", consumes = "application/json")
-    public Map<String, String> performRegistration(@RequestBody @Valid UserDTO userDTO,
+    public Map<String, String> performRegistration(@RequestBody @Valid AuthDTO authDTO,
                                                    BindingResult bindingResult) {
-        User user = convertToPerson(userDTO);
+        User user = convertToPerson(authDTO);
 
 
         userValidator.validate(user, bindingResult);
@@ -68,7 +69,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public Map<String, String> performLogin(@RequestBody AuthDTO authenticationDTO) {
+    public ResponseEntity<Map<String, String>> performLogin(@RequestBody AuthDTO authenticationDTO) {
         UsernamePasswordAuthenticationToken authInputToken =
                 new UsernamePasswordAuthenticationToken(authenticationDTO.getUsername(),
                         authenticationDTO.getPassword());
@@ -76,19 +77,14 @@ public class AuthController {
         try {
             authenticationManager.authenticate(authInputToken);
         } catch (BadCredentialsException e) {
-            return Map.of("message", "Incorrect credentials!");
+            return ResponseEntity.badRequest().body(Map.of("message", "Incorrect credentials!"));
         }
 
         String token = jwtUtil.generateToken(authenticationDTO.getUsername());
-        return Map.of("jwt-token", token);
+        return ResponseEntity.ok(Map.of("jwt-token", token));
     }
 
-    @GetMapping("/d")
-    public ResponseEntity<String> retString(){
-        return ResponseEntity.ok("Da");
-    }
-
-    public User convertToPerson(UserDTO personDTO) {
+    public User convertToPerson(AuthDTO personDTO) {
         return this.modelMapper.map(personDTO, User.class);
     }
 
