@@ -1,7 +1,6 @@
-package com.example.demo.service;
+package com.example.demo.service.task;
 
 import com.example.demo.models.Task;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 

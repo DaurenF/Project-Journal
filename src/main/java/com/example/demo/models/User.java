@@ -2,7 +2,6 @@ package com.example.demo.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -43,8 +42,7 @@ public class User {
     private List<Task> taskList;
 
 
-
-    public User(String name, String surname,String username, Date birth, String gender, String country, String email, String password) {
+    public User(String name, String surname, String username, Date birth, String gender, String country, String email, String password) {
         this.name = name;
         this.surname = surname;
         this.username = username;

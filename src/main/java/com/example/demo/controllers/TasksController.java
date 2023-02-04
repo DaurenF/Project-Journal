@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.models.Task;
-import com.example.demo.service.TasksServiceImpl;
+import com.example.demo.service.task.TasksServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

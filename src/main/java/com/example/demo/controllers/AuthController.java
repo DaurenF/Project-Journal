@@ -1,10 +1,9 @@
 package com.example.demo.controllers;
 
 import com.example.demo.dto.AuthDTO;
-import com.example.demo.dto.UserDTO;
 import com.example.demo.models.User;
 import com.example.demo.security.JWTUtil;
-import com.example.demo.service.RegistrationService;
+import com.example.demo.service.user.RegistrationService;
 import com.example.demo.util.UserValidator;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;

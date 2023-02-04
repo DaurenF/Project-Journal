@@ -1,7 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.models.User;
-import com.example.demo.service.UserService;
+import com.example.demo.service.user.UserService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 

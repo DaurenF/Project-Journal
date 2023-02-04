@@ -2,7 +2,7 @@ package com.example.demo.config;
 
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.example.demo.security.JWTUtil;
-import com.example.demo.service.UserDetailsServiceImpl;
+import com.example.demo.service.user.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.service.user;
 
 import com.example.demo.models.User;
 import com.example.demo.repository.UserRepository;
@@ -17,6 +17,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetailsServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findUserByUsername(username);

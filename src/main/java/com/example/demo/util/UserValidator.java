@@ -2,7 +2,7 @@ package com.example.demo.util;
 
 
 import com.example.demo.models.User;
-import com.example.demo.service.UserDetailsServiceImpl;
+import com.example.demo.service.user.UserDetailsServiceImpl;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -25,7 +25,7 @@ public class UserValidator implements Validator {
 
     @Override
     public void validate(Object o, Errors errors) {
-        User user  = (User) o;
+        User user = (User) o;
         try {
             userDetailsService.loadUserByUsername(user.getUsername());
         } catch (UsernameNotFoundException ignored) {
